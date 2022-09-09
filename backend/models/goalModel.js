@@ -1,18 +1,20 @@
 const mongoose = require('mongoose')
-// const User = require('./userModel')
 
-const goalSchema = mongoose.Schema({
+const goalSchema = mongoose.Schema(
+  {
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
     },
     text: {
-        type: String,
-        required: [true, `Please add a text value`]
+      type: String,
+      required: [true, 'Please add a text value'],
     },
-}, {
-    timestamps: true, // This line will add to the schema the createdAt and updatedAt fields automatically
-})
+  },
+  {
+    timestamps: true,
+  }
+)
 
-module.exports = mongoose.model("Goal", goalSchema)
+module.exports = mongoose.model('Goal', goalSchema)
